@@ -262,3 +262,61 @@ p {
 }
 ```
 ![](../images/chapter02/019.png)
+
+理想情况下，我们会认为p标签之间的margin应该是它们的和(20px),但实际上却是10px.这其实是`collapsing margins`(外边距坍塌)。其中flex布局不存在`collapsing margins`，水平方向上也不存在`collapsing margins`。
+
+利用BFC能消除`collapsing margins`。紧记只有当元素在同一个BFC中时，垂直方向上的margin才会clollpase。如果它们属于不同的BFC，则不会有`margin collapse`。因此我们可以再建立一个BFC去阻止`margin collpase`的发生。
+所以为了让他们的margins变成20，我们只需要用div,建立一个BFC,令p元素处于不同BFC即可。
+![](../images/chapter02/020.png)
+html代码
+```html
+<div class="container">
+  <p>条目 1</p>
+  <p>条目 2</p>
+  <div class="newBFC">
+  	  <p>条目 3</p>
+  </div>
+</div>
+
+```
+css代码
+```css
+.container {
+	width: 300px;
+  background-color: black;
+  overflow: hidden;
+}
+
+p {
+  background-color: white;
+  margin: 10px 0;
+  text-align: center;
+}
+.newBFC {
+  overflow: hidden;
+}
+```
+
+**容纳浮动元素**
+
+就是解决上面遇到的高度崩塌问题。
+![](../images/chapter02/021.png)
+
+只需要将css代码改动一下，增加一个BFC来容纳浮动元素。
+
+css代码
+```css
+.div1{
+    padding: 10px;
+    border: 3px solid black;
+}
+.div2 {
+	overflow: hidden;
+    border: 3px solid red;
+}
+.div2 img {
+    float: left;
+    padding:10px;
+}
+
+```
