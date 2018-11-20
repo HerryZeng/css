@@ -320,3 +320,23 @@ css代码
 }
 
 ```
+
+除此之外，对于解决高度崩塌，还有如下方式：
+
+**增加一个清除浮动的子元素**
+
+```html
+    <div class="div1">
+        <img src="image1.jpg">
+    </div>
+    <div class="div2">
+        <img src="image2.jpg">
+        <div style="clear: both"></div>
+    </div>
+```
+增加一个`div`元素，因为是清除元素，会在`img`元素底部显示，因此会撑起`div2`高度。
+
+**阻止文本换行**
+
+大多数情况(若没有特殊设置)，如Figure1,文本将会环绕浮动元素,但有时候这并不是我们期望的。我们期待的是Figure2如图:
+![](../images/chapter02/022.png)
