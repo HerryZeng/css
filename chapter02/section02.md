@@ -202,3 +202,63 @@ css代码
 >对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。
 
 
+---
+
+### 四、BFC
+
+>为什么要介绍BFC，是因为它和float有着密切的关系。
+
+1 . BFC的介绍
+
+**定义**
+
+一些元素，如float元素，如position为absolute,inline-block,table-cell或table-caption的元素，以及overflow属性不为visible的元素，它们将会建立一个新的**块级格式化上下文**(Block Formatting Context),也就是我们所说的BFC
+
+**形成**
+
+BFC也是HTML中的一个盒子（看不见而已），只有满足至少下列条件之一才能形成BFC:
+    + float属性不为none.
+    + position属性不为static和relative.
+    + display属性为下列之一:table-cell,table-caption,inline-block, flex,inline-flex.
+    + overflow属性不为visible.
+    
+**布局规则**
+
++ 内部的Box会在垂直方向，一个接一个地放置。
++ Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
++ 每个元素的margin box的左边，与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
++ BFC的区域不会与float box重叠。
++ BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。
++ 计算BFC的高度时，浮动元素也参与计算
+
+有些规则可能不太理解，看完下面的内容就会理解。
+
+2 . BFC作用
+
+**消除Margin Collapse**
+
+在正常情况下，在一个容器内的所有box将会由上至下依次垂直排列，即我们所说的一个元素占一行，并切垂直相邻的距离(即margin)是由各自的margin决定的，而不是两个margin的叠加。
+
+让我们看一个例子：
+```html
+<div class="container">
+  <p>条目 1</p>
+  <p>条目 2</p>
+  <p>条目 3</p>
+</div>
+```
+css代码
+```css
+.container {
+	width: 300px;
+	background-color: black;
+	overflow: hidden;
+}
+
+p {
+  background-color: white;
+  margin: 10px 0;
+  text-align: center;
+}
+```
+![](../images/chapter02/019.png)
