@@ -37,7 +37,7 @@ css代码
 
 ### 二、float元素特性
 
-1. 块级框
+1 . 块级框
 
 不管一个元素是行内元素还是块级元素，如果被设置了浮动，那浮动元素会生成一个块级框，可以设置它的`width`和`height`，因此`floa`t常常用于制作横向配列的菜单，可以设置大小并且横向排列。
 
@@ -68,3 +68,86 @@ css代码
 
 再来看下行内元素的例子：
 ![](../images/chapter02/015.png)
+html代码
+```html
+	<div class="box">
+        <span class="rule1">
+            首页
+        </span>
+        <span class="rule1">
+            发现
+        </span>
+        <span class="rule1">
+            动态
+        </span>
+        <span class="rule1">
+            我的
+        </span>
+    </div>
+```
+css代码
+```css
+.box { 
+	background: #d32d2d; 
+	padding: 10px; 
+	width: 500px; 
+	height: 400px; 
+}
+.rule1 { 
+	float: left; 
+	margin: 10px; 
+	padding: 10px; 
+	background: #eee; 
+	width: 100px; 
+	text-align: center; 
+}
+```
+由上图发现，当`span`设置`float`属性后，可以指定`width`，`heigh`t值。 同时可以发现，当多个元素指定为`float`且同时为`left/righ`t时，元素是紧挨着排列，行内宽度不够时再换行排列。
+
+2 . 高度崩塌
+![](../images/chapter02/016.png)
+html代码
+```html
+    <div class="div1">
+	<img src="image1.jpg">
+    </div>
+    <div class="div2">
+	<img src="image2.jpg">
+    </div>
+```
+css代码
+```css
+.div1{
+	padding: 10px;
+	border: 3px solid black;
+}
+.div2 {
+	border: 3px solid red;
+}
+.div2 img {
+	float: left;
+	padding:10px;
+} 
+```
+将`float`属性设置给`div2`内部的`img`元素，可以看出`div2`的高度并没有`img`元素被撑起来，因此又叫**高度崩塌**。 因为将`img`元素设置为浮动元素，所以脱离文档流。因而`div2`中认为没有元素，所以产生了高度崩塌。具体怎么解决高度崩塌，后面再介绍。
+
+---
+
+### 三、clear属性
+
+clear属性的作用是清除浮动。
+```css
+  clear : none | left | right | both
+
+   取值：
+
+   none  :  默认值。允许两边都可以有浮动对象
+
+   left   :  不允许左边有浮动对象
+
+   right  :  不允许右边有浮动对象
+
+   both  :  不允许有浮动对象
+
+```
+![](../images/chapter02/017.png)
