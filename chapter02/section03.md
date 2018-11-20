@@ -85,6 +85,7 @@
 </body>
 </html>
 ```
+![](../images/chapter02/025.png)
 
 另外，我们再做一个试验，将box这个div的高度值删除后，我们发现，box的高度自动的被content 这个div的高度值给撑开了。
 
