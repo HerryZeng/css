@@ -43,3 +43,28 @@ css代码
 
 首先看一个块级元素的例子。
 ![](../images/chapter02/014.png)
+html代码
+```html
+    <div class="div1">
+		<img src="image1.jpg">
+	</div>
+	<div class="div2">
+		<img src="image2.jpg">
+	</div>
+```
+css代码
+```css
+.div1{
+	padding: 10px;
+	border: 3px solid black;
+}
+.div2 {
+	float: left;
+	padding:10px;
+	border: 3px solid red;
+}
+```
+默认情况下，`div`元素的宽是100%，一旦让该`div`浮动起来，立刻会像`inline`元素一样产生包裹性，宽度会跟随内容自适应。
+
+再来看下行内元素的例子：
+![](../images/chapter02/015.png)
