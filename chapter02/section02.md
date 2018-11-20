@@ -311,7 +311,7 @@ css代码
     border: 3px solid black;
 }
 .div2 {
-	overflow: hidden;
+    overflow: hidden;
     border: 3px solid red;
 }
 .div2 img {
