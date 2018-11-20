@@ -151,3 +151,54 @@ clear属性的作用是清除浮动。
 
 ```
 ![](../images/chapter02/017.png)
+html代码
+```html
+    <div class="div1">
+    </div>
+    <div class="div2">
+    </div>
+```
+css代码
+```css
+.div1{
+	float: left;
+	width: 300px;
+	height: 150px;
+	padding: 10px;
+	border: 3px solid black;
+	background-image: url("image1.jpg")
+}
+.div2 {
+	border: 3px solid red;
+	padding:10px;
+	width:500px;
+	height:200px;
+	background-image: url("image2.jpg")
+}
+```
+如上图所示，由于`div1`是浮动元素，所以`div2`在`div1`底层铺展。 如果想要让`div2`换行排列，居于`div1`底端下方，这个时候就要用到`clear`属性了。
+![](../images/chapter02/018.png)
+css代码
+```css
+.div1{
+	float: left;
+	width: 300px;
+	height: 150px;
+	padding: 10px;
+	border: 3px solid black;
+	background-image: url("image1.jpg")
+}
+.div2 {
+        clear: left;
+	border: 3px solid red;
+	padding:10px;
+	width:500px;
+	height:200px;
+	background-image: url("image2.jpg")
+}
+```
+只需要在`div2`中加入`clear: left;`。
+
+>对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。
+
+
