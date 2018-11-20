@@ -14,6 +14,7 @@
 
           height:500px;
           /*overflow: hidden;*/
+          border: 3px solid black;
 
  } 
 
@@ -39,4 +40,5 @@
 </body>
 </html>
 ```
-
+如下图：
+![](../images/chapter02/024.png)
