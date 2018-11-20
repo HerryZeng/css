@@ -95,3 +95,6 @@ clear : none | left | right | both
 
 要想让`div2`下移，就必须在`div2`的CSS样式中使用浮动。本例中`div2`的左边有浮动元素`div1`，因此只要在`div2`的CSS样式中使用`clear:left;`来指定`div2`元素左边不允许出现浮动元素，这样`div2`就被迫下移一行。
 ![](../images/chapter02/010.png)
+
+那么假如页面中只有两个元素`div1`、`div2`，它们都是右浮动呢？读者此时应该已经能自己推测场景，如下：
+![](../images/chapter02/011.png)
